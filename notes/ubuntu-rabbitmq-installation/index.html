@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            
+            Kelvin&#39;s Blog
+            
+        </title>
+        
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-reboot.min.css" rel="stylesheet">
+        
+        <link href="https://kelvin2dan.github.io/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://kelvin2dan.github.io/css/main.css" rel="stylesheet">
+    </head>    
+    <body>
+        <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Kelvin's Blog</a>
+        <ul class="navbar-nav mr-auto">
+            
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="/notes/">Notes</a>
+            </li>
+            
+        </ul>
+        <ul class="navbar-nav">  
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/kelvin2dan" target="_blank" aria-label="GitHub">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" data-toggle="modal" data-target="#emailModal" aria-label="Email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="WeChat">
+                    <i class="fa fa-weixin" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="QQ">
+                    <i class="fa fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+          </ul>
+    </nav>
+</header>
+
+
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailModalLabel">Email Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@yeah.net</button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@gmail.com</button>
+              </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+        
+        
+    <div class="main container">
+        <article>
+            <header>
+                <h2>ubuntu rabbitmq installation</h2>
+            </header>
+            <hr/>
+            <p>
+                <h2 id="1-install-erlang">1. install erlang</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> sudo apt-get install erlang-nox
+</code></pre></div><h2 id="2-install-rabbitmq">2. install rabbitmq</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo apt-get udpate
+ sudo apt-get install rabbitmq-server
+</code></pre></div><h2 id="3-start-rabbitmq">3. start rabbitmq</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo rabbitmq-server start
+ sudo service rabbitmq-server start
+ sudo rabbitmq-server stop
+ sudo service rabbitmq-server stop
+ sudo rabbitmq-server restart
+ sudo service rabbitmq-server restart
+ sudo rabbitmqctl status
+ sudo service rabbitmq-server status
+</code></pre></div><h2 id="4-add-user--grant-permission">4. add user &amp; grant permission</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo rabbitmqctl add_user rabbit admin
+ sudo rabbitmqctl set_user_tags rabbit administrator
+ sudo rabbitmqctl set_permissions -p / rabbit <span style="color:#e6db74">&#39;.*&#39;</span> <span style="color:#e6db74">&#39;.*&#39;</span> <span style="color:#e6db74">&#39;.*&#39;</span>
+</code></pre></div><h2 id="5-enable-plugins">5. enable plugins</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo rabbitmq-plugins enable rabbitmq_management
+</code></pre></div><h2 id="6-access-website">6. access website</h2>
+<p><a href="http://localhost:15672">RabbitMQ Management</a></p>
+<h2 id="7-default-port">7. default port</h2>
+<pre><code> localhost:15672
+</code></pre>
+            </p>
+            <div>
+                
+                    <a class="previous" href="https://kelvin2dan.github.io/notes/ubuntu-redis-installation/"> ubuntu-redis-installation</a>
+                
+                
+                    <a class="next" href="https://kelvin2dan.github.io/notes/ubuntu-mysql-installation/"> ubuntu-mysql-installation</a>
+                
+            </div>
+        </article>
+    </div>
+
+        
+        <footer class="fixed-bottom">
+    <div class="alert alert-secondary" role="alert">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                Copyright &copy; MIT License. This site if free for everyone.
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.16.1/esm/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://kelvin2dan.github.io/js/main.js"></script>
+    </body>
+</html>

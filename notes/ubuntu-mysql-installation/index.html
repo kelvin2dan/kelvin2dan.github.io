@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            
+            Kelvin&#39;s Blog
+            
+        </title>
+        
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-reboot.min.css" rel="stylesheet">
+        
+        <link href="https://kelvin2dan.github.io/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://kelvin2dan.github.io/css/main.css" rel="stylesheet">
+    </head>    
+    <body>
+        <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Kelvin's Blog</a>
+        <ul class="navbar-nav mr-auto">
+            
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="/notes/">Notes</a>
+            </li>
+            
+        </ul>
+        <ul class="navbar-nav">  
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/kelvin2dan" target="_blank" aria-label="GitHub">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" data-toggle="modal" data-target="#emailModal" aria-label="Email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="WeChat">
+                    <i class="fa fa-weixin" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="QQ">
+                    <i class="fa fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+          </ul>
+    </nav>
+</header>
+
+
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailModalLabel">Email Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@yeah.net</button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@gmail.com</button>
+              </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+        
+        
+    <div class="main container">
+        <article>
+            <header>
+                <h2>ubuntu mysql installation</h2>
+            </header>
+            <hr/>
+            <p>
+                <h2 id="1-install-mysql">1. install mysql</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo apt-get update
+ sudo apt-get install mysql-server
+</code></pre></div><h2 id="2-configure-mysql">2. configure mysql</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo mysql_secure_installation
+ <span style="color:#75715e">#1 N</span>
+ <span style="color:#75715e">#2 Enter password</span>
+ <span style="color:#75715e">#3 N</span>
+ <span style="color:#75715e">#4 Y</span>
+ <span style="color:#75715e">#5 Y</span>
+ <span style="color:#75715e">#6 Y</span>
+</code></pre></div><h2 id="3-check-status">3. check status</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo service mysql start
+ sudo service mysql stop
+ sudo service mysql restart
+ sudo service mysql status
+</code></pre></div><h2 id="4-access-mysql">4. access mysql</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo mysql -uroot -p
+ <span style="color:#75715e"># Enter password</span>
+ &gt; use mysql;
+ &gt; update user set host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;%&#39;</span> where user<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;root&#39;</span>;
+ &gt; grant all privileges on *.* to <span style="color:#e6db74">&#39;root&#39;</span>@<span style="color:#e6db74">&#39;%&#39;</span> identified by <span style="color:#e6db74">&#39;admin&#39;</span>;
+ &gt; flush privileges;
+ &gt; quit;
+</code></pre></div><h2 id="5-default-port">5. default port</h2>
+<pre><code> localhost:3306
+</code></pre>
+            </p>
+            <div>
+                
+                    <a class="previous" href="https://kelvin2dan.github.io/notes/ubuntu-rabbitmq-installation/"> ubuntu-rabbitmq-installation</a>
+                
+                
+                    <a class="next" href="https://kelvin2dan.github.io/notes/ubuntu-mongodb-installation/"> ubuntu-mongodb-installation</a>
+                
+            </div>
+        </article>
+    </div>
+
+        
+        <footer class="fixed-bottom">
+    <div class="alert alert-secondary" role="alert">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                Copyright &copy; MIT License. This site if free for everyone.
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.16.1/esm/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://kelvin2dan.github.io/js/main.js"></script>
+    </body>
+</html>

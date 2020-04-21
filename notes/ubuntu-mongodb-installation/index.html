@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>
+            
+            Kelvin&#39;s Blog
+            
+        </title>
+        
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-grid.min.css" rel="stylesheet">
+        <link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap-reboot.min.css" rel="stylesheet">
+        
+        <link href="https://kelvin2dan.github.io/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://kelvin2dan.github.io/css/main.css" rel="stylesheet">
+    </head>    
+    <body>
+        <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Kelvin's Blog</a>
+        <ul class="navbar-nav mr-auto">
+            
+            
+            <li class="nav-item">
+                <a class="nav-link active" href="/notes/">Notes</a>
+            </li>
+            
+        </ul>
+        <ul class="navbar-nav">  
+            <li class="nav-item">
+                <a class="nav-link p-2" href="https://github.com/kelvin2dan" target="_blank" aria-label="GitHub">
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" data-toggle="modal" data-target="#emailModal" aria-label="Email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="WeChat">
+                    <i class="fa fa-weixin" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link p-2" href="#" aria-label="QQ">
+                    <i class="fa fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+          </ul>
+    </nav>
+</header>
+
+
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="emailModalLabel">Email Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@yeah.net</button>
+              </li>
+              <li class="list-group-item">
+                <button type="button" name="copyLink"  data-toggle="tooltip" data-placement="top" title="Click to copy to the clipboard!" class="btn btn-link">kelvinyokou@gmail.com</button>
+              </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+        
+        
+    <div class="main container">
+        <article>
+            <header>
+                <h2>ubuntu mongodb installation</h2>
+            </header>
+            <hr/>
+            <p>
+                <h2 id="1-install-mongodb">1. install mongodb</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo apt-get install mongodb
+ locate mongo
+</code></pre></div><h2 id="2-check-status">2. check status</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> sudo service mongodb start
+ sudo service mongodb stop
+ sudo service mongodb restart
+ pgrep mongo -l
+ sudo service mongodb status
+</code></pre></div><h2 id="3-mongo-cli">3. mongo cli</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> mongo
+ &gt; use admin
+ &gt; db.createUser<span style="color:#f92672">(</span>
+... <span style="color:#f92672">{</span>
+...   user: <span style="color:#e6db74">&#34;root&#34;</span>,
+...   pwd: <span style="color:#e6db74">&#34;admin&#34;</span>,
+...   roles: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> role: <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>, db: <span style="color:#e6db74">&#34;admin&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span>
+...  <span style="color:#f92672">}</span>
+... <span style="color:#f92672">)</span>
+Successfully added user: <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;user&#34;</span> : <span style="color:#e6db74">&#34;root&#34;</span>,
+    <span style="color:#e6db74">&#34;roles&#34;</span> : <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#e6db74">&#34;role&#34;</span> : <span style="color:#e6db74">&#34;userAdminAnyDatabase&#34;</span>,
+            <span style="color:#e6db74">&#34;db&#34;</span> : <span style="color:#e6db74">&#34;admin&#34;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+ &gt; db.auth<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;root&#34;</span>, <span style="color:#e6db74">&#34;admin&#34;</span><span style="color:#f92672">)</span>
+ &gt; quit<span style="color:#f92672">()</span>
+</code></pre></div><h2 id="4-default-port">4. default port</h2>
+<pre><code> localhost:27017
+</code></pre>
+            </p>
+            <div>
+                
+                    <a class="previous" href="https://kelvin2dan.github.io/notes/ubuntu-mysql-installation/"> ubuntu-mysql-installation</a>
+                
+                
+            </div>
+        </article>
+    </div>
+
+        
+        <footer class="fixed-bottom">
+    <div class="alert alert-secondary" role="alert">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                Copyright &copy; MIT License. This site if free for everyone.
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.slim.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.16.1/esm/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://kelvin2dan.github.io/js/main.js"></script>
+    </body>
+</html>
